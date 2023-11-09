@@ -5,7 +5,8 @@ import './globals.css'
 // Components
 import Navbar from '@/app/components/navbar/Navbar';
 import ClientOnly from "./components/ClientOnly"
-import Modal from './components/modals/Modal';
+import RegisterModal from './components/modals/RegisterModal';
+import ToasterProvider from './providers/ToasterProvider';
 
 const nunito = Nunito({ subsets: ['latin'] })
 
@@ -24,7 +25,8 @@ export default function RootLayout({
       <body className={nunito.className}>
         {/* Avoid Error Hydration in Loading */}
         <ClientOnly>
-          <Modal actionLabel="Submit" title="Login" isOpen /> 
+          <ToasterProvider />
+          <RegisterModal />
           <Navbar />
         </ClientOnly>
         <div>{children}</div>
